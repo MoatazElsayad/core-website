@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import TrustNotice from "../components/TrustNotice";
 import Icon from "../components/Icon";
+import IdentityDivider from "../components/IdentityDivider";
 import { home, trustNotice } from "../data/placeholderData";
 import homeBackground from "../../home.png";
 
@@ -9,10 +10,15 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <IdentityDivider variant="bridge" />
       <WelcomeSection />
+      <IdentityDivider variant="syria" subtle />
       <WhyMunichSection />
+      <IdentityDivider variant="germany" subtle />
       <GuideSectionsBand />
+      <IdentityDivider variant="bridge" />
       <JourneySection />
+      <IdentityDivider variant="syria" subtle />
       <IdentitySection />
     </>
   );

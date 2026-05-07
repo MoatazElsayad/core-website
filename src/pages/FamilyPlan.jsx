@@ -3,12 +3,14 @@ import FamilyPlanForm from "../components/FamilyPlanForm";
 import SectionHeader from "../components/SectionHeader";
 import Icon from "../components/Icon";
 import CallToActionBanner from "../components/CallToActionBanner";
+import IdentityDivider from "../components/IdentityDivider";
 import { familyPlanPage } from "../data/placeholderData";
 
 export default function FamilyPlan() {
   return (
     <>
       <PageHero compact hero={familyPlanPage.hero} />
+      <IdentityDivider variant="germany" subtle />
       <section className="py-10">
         <div className="section-shell">
           <SectionHeader
@@ -32,6 +34,7 @@ export default function FamilyPlan() {
         </div>
       </section>
       <FamilyPlanForm />
+      <IdentityDivider variant="bridge" subtle />
       <CallToActionBanner cta={familyPlanPage.cta} />
     </>
   );

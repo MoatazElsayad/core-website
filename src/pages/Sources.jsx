@@ -2,12 +2,14 @@ import PageHero from "../components/PageHero";
 import SectionHeader from "../components/SectionHeader";
 import ResourceCard from "../components/ResourceCard";
 import CallToActionBanner from "../components/CallToActionBanner";
+import IdentityDivider from "../components/IdentityDivider";
 import { sourceLibrary, sourcesPage } from "../data/placeholderData";
 
 export default function Sources() {
   return (
     <>
       <PageHero hero={sourcesPage.hero} />
+      <IdentityDivider variant="bridge" subtle />
       <section className="py-16">
         <div className="section-shell">
           <SectionHeader {...sourcesPage.header} />
@@ -25,6 +27,7 @@ export default function Sources() {
           </div>
         </div>
       </section>
+      <IdentityDivider variant="germany" subtle />
       <CallToActionBanner cta={sourcesPage.cta} />
     </>
   );

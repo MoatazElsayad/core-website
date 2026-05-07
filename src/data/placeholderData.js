@@ -138,6 +138,12 @@ export const mediaImages = {
     label: "Belonging",
     caption: "Faith and community spaces can reduce isolation.",
   },
+  challengeDiscrimination: {
+    src: "https://s.france24.com/media/display/e2b49222-b56c-11ef-ab75-005056bfb2b6/w:1280/p:1x1/b71749c3ca1ed52b0cdc5538482eda30db904119.jpg",
+    alt: "People gathering around a public demonstration about discrimination and rights",
+    label: "Discrimination and rights",
+    caption: "Knowing rights and support channels helps families respond to discrimination.",
+  },
   challengeMentalHealth: {
     src: "https://cdn2.psychologytoday.com/assets/styles/manual_crop_1_91_1_1528x800/public/teaser_image/blog_entry/2024-12/Depositphotos_641051640_XL.jpg?itok=67Qh8Lel",
     alt: "A supportive therapy conversation",
@@ -663,7 +669,7 @@ export const challenges = [
     title: "Discrimination and Islamophobia",
     category: "Rights",
     icon: "ShieldAlert",
-    image: mediaImages.challengeCulture,
+    image: mediaImages.challengeDiscrimination,
     challenge:
       "Some Syrian refugees may face discrimination in work, housing, public life, or social situations. Muslim women who wear hijab may also worry about discrimination in the workplace.",
     solutionGroups: [

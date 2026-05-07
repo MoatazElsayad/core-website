@@ -7,6 +7,7 @@ import CallToActionBanner from "../components/CallToActionBanner";
 import PlaceholderImage from "../components/PlaceholderImage";
 import PagePersonalityBlock from "../components/PagePersonalityBlock";
 import TrustNotice from "../components/TrustNotice";
+import IdentityDivider from "../components/IdentityDivider";
 import { pagePersonalityBlocks, trustNotice } from "../data/placeholderData";
 
 export default function GuidePage({ page }) {
@@ -23,6 +24,7 @@ export default function GuidePage({ page }) {
           image: page.image,
         }}
       />
+      <IdentityDivider variant="bridge" subtle />
       {page.showTrustNotice && <TrustNotice notice={trustNotice} />}
       <section className="py-12">
         <div className="section-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
@@ -53,6 +55,7 @@ export default function GuidePage({ page }) {
         icon={page.heroIcon}
         image={page.sectionImage || page.image}
       />
+      <IdentityDivider variant={page.personality === "culture" ? "syria" : "germany"} subtle />
       <section className="py-16">
         <div className="section-shell">
           <SectionHeader

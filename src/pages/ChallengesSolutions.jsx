@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ExternalLink } from "lucide-react";
 import Icon from "../components/Icon";
+import IdentityDivider from "../components/IdentityDivider";
 import { challenges, challengesPage } from "../data/placeholderData";
 
 export default function ChallengesSolutions() {
@@ -15,13 +16,16 @@ export default function ChallengesSolutions() {
   return (
     <>
       <ChallengesHero />
+      <IdentityDivider variant="bridge" />
       <ChallengeNavigator
         activeCategory={activeCategory}
         onChangeCategory={setActiveCategory}
       />
+      <IdentityDivider variant="syria" subtle />
       {visibleChallenges.map((challenge, index) => (
         <ChallengeSection key={challenge.title} challenge={challenge} index={index} />
       ))}
+      <IdentityDivider variant="germany" subtle />
       <ClosingSection />
     </>
   );
