@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import TrustNotice from "../components/TrustNotice";
 import Icon from "../components/Icon";
 import { home, trustNotice } from "../data/placeholderData";
+import homeBackground from "../../home.png";
 
 export default function Home() {
   return (
@@ -19,17 +20,26 @@ export default function Home() {
 
 function HeroSection() {
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden border-b border-charcoal/10 bg-[radial-gradient(circle_at_top_left,_rgba(17,97,73,0.16),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(200,157,60,0.2),_transparent_34%),linear-gradient(135deg,_#f6efe2_0%,_#fffaf1_48%,_#efe5d7_100%)] dark:border-white/10 dark:bg-[radial-gradient(circle_at_top_left,_rgba(200,157,60,0.18),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(159,47,47,0.16),_transparent_34%),linear-gradient(135deg,_#171615_0%,_#1d1b19_48%,_#120f0d_100%)]">
-      <div className="absolute inset-0 opacity-40 dark:opacity-20">
+    <section
+      className="relative flex min-h-[100svh] items-center overflow-hidden border-b border-charcoal/10 dark:border-white/10"
+      style={{
+        backgroundImage: `linear-gradient(115deg, rgba(255, 250, 241, 0.68), rgba(255, 250, 241, 0.54)), url(${homeBackground})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(17,97,73,0.12),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(200,157,60,0.14),_transparent_34%)] dark:bg-[linear-gradient(135deg,_rgba(23,22,21,0.68)_0%,_rgba(29,27,25,0.54)_48%,_rgba(18,15,13,0.72)_100%),radial-gradient(circle_at_top_left,_rgba(200,157,60,0.16),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(159,47,47,0.14),_transparent_34%)]" />
+
+      <div className="absolute inset-0 opacity-30 dark:opacity-15">
         <div className="absolute left-[8%] top-[14%] h-36 w-36 rotate-12 border border-gold/25" />
         <div className="absolute bottom-[18%] left-[14%] h-56 w-56 rounded-full border border-emeraldDeep/15" />
         <div className="absolute right-[8%] top-[22%] h-72 w-72 rounded-full border border-redwood/15" />
         <div className="absolute bottom-[12%] right-[14%] h-32 w-80 -rotate-12 border border-charcoal/10 dark:border-white/10" />
       </div>
 
-      <div className="section-shell relative z-10 grid gap-12 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-        <div className="max-w-4xl">
-          <p className="inline-flex rounded-full border border-emeraldDeep/20 bg-linen/75 px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-emeraldDeep shadow-soft dark:border-gold/20 dark:bg-white/6 dark:text-gold">
+      <div className="section-shell relative z-10 py-16">
+        <div className="max-w-5xl">
+          <p className="inline-flex rounded-full border border-emeraldDeep/20 bg-linen/85 px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-emeraldDeep shadow-soft dark:border-gold/20 dark:bg-white/10 dark:text-gold">
             {home.hero.label}
           </p>
           <h1 className="mt-8 font-display text-6xl font-bold leading-none text-charcoal dark:text-linen sm:text-7xl lg:text-[7rem]">
@@ -38,35 +48,6 @@ function HeroSection() {
           <p className="mt-6 max-w-3xl text-2xl font-bold leading-10 text-ink/88 dark:text-cream/88 sm:text-3xl sm:leading-[3.2rem]">
             {home.hero.subtitle}
           </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <HeroButton cta={home.hero.primaryCta} primary />
-            <HeroButton cta={home.hero.secondaryCta} />
-          </div>
-        </div>
-
-        <div className="grid gap-4">
-          <div className="rounded-lg border border-charcoal/10 bg-white/72 p-6 shadow-consultant backdrop-blur dark:border-white/10 dark:bg-white/8">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-redwood dark:text-gold">
-              Consultant-style guide
-            </p>
-            <p className="mt-4 text-base leading-8 text-ink/72 dark:text-cream/76">
-              {home.hero.description}
-            </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {home.stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-lg border border-charcoal/10 bg-linen/84 p-4 shadow-soft dark:border-white/10 dark:bg-white/8"
-              >
-                <span className="grid h-11 w-11 place-items-center rounded-lg bg-charcoal text-gold dark:bg-gold dark:text-charcoal">
-                  <Icon name={stat.icon} className="h-5 w-5" />
-                </span>
-                <p className="mt-5 text-2xl font-black text-charcoal dark:text-linen">{stat.value}</p>
-                <p className="mt-1 text-sm font-bold text-ink/62 dark:text-cream/68">{stat.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
@@ -113,6 +94,7 @@ function WhyMunichSection() {
           <p className="mt-8 rounded-lg border border-gold/25 bg-gold/10 p-5 text-sm font-bold leading-8 text-ink/72 dark:border-gold/20 dark:bg-gold/8 dark:text-cream/74">
             {home.whyMunich.closing}
           </p>
+          <PhotoPanel image={home.whyMunich.image} className="mt-6" />
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
@@ -178,16 +160,19 @@ function JourneySection() {
   return (
     <section className="flex min-h-[100svh] items-center border-b border-charcoal/10 bg-[linear-gradient(180deg,_rgba(255,250,241,0.96)_0%,_rgba(240,234,223,0.96)_100%)] py-16 dark:border-white/10 dark:bg-[linear-gradient(180deg,_#151412_0%,_#100f0e_100%)]">
       <div className="section-shell">
-        <div className="max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.24em] text-emeraldDeep dark:text-gold">
-            {home.journeyOverview.label}
-          </p>
-          <h2 className="mt-5 font-display text-4xl font-bold text-charcoal dark:text-linen sm:text-5xl">
-            {home.journeyOverview.title}
-          </h2>
-          <p className="mt-6 text-lg leading-9 text-ink/72 dark:text-cream/76">
-            {home.journeyOverview.intro}
-          </p>
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div className="max-w-3xl">
+            <p className="text-sm font-black uppercase tracking-[0.24em] text-emeraldDeep dark:text-gold">
+              {home.journeyOverview.label}
+            </p>
+            <h2 className="mt-5 font-display text-4xl font-bold text-charcoal dark:text-linen sm:text-5xl">
+              {home.journeyOverview.title}
+            </h2>
+            <p className="mt-6 text-lg leading-9 text-ink/72 dark:text-cream/76">
+              {home.journeyOverview.intro}
+            </p>
+          </div>
+          <PhotoPanel image={home.journeyOverview.image} />
         </div>
         <div className="mt-14 grid gap-4 xl:grid-cols-5">
           {home.journeyOverview.stages.map((stage, index) => (
@@ -217,6 +202,33 @@ function JourneySection() {
         </div>
       </div>
     </section>
+  );
+}
+
+function PhotoPanel({ image, className = "" }) {
+  if (!image?.src) return null;
+
+  return (
+    <figure className={`overflow-hidden rounded-lg border border-charcoal/10 bg-white/84 p-3 shadow-soft dark:border-white/10 dark:bg-white/8 ${className}`}>
+      <div className="relative overflow-hidden rounded-lg bg-charcoal">
+        <img
+          src={image.src}
+          alt={image.alt || ""}
+          className="h-64 w-full object-cover"
+          loading="lazy"
+          referrerPolicy="no-referrer"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/74 via-charcoal/10 to-transparent" />
+        <figcaption className="absolute inset-x-0 bottom-0 p-5">
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-gold">
+            {image.label}
+          </p>
+          <p className="mt-2 text-sm font-semibold leading-7 text-linen/82">
+            {image.caption}
+          </p>
+        </figcaption>
+      </div>
+    </figure>
   );
 }
 
@@ -251,21 +263,5 @@ function IdentitySection() {
         </div>
       </div>
     </section>
-  );
-}
-
-function HeroButton({ cta, primary = false }) {
-  return (
-    <Link
-      to={cta.path}
-      className={`inline-flex items-center justify-center gap-2 rounded-lg px-6 py-4 text-sm font-black transition focus:outline-none focus:ring-4 focus:ring-gold/25 ${
-        primary
-          ? "bg-charcoal text-linen shadow-consultant hover:-translate-y-0.5 hover:bg-ink dark:bg-gold dark:text-charcoal"
-          : "border border-charcoal/15 bg-white/78 text-charcoal shadow-soft hover:-translate-y-0.5 hover:bg-white dark:border-white/10 dark:bg-white/8 dark:text-linen dark:hover:bg-white/12"
-      }`}
-    >
-      {cta.label}
-      <ArrowRight className="h-4 w-4" />
-    </Link>
   );
 }

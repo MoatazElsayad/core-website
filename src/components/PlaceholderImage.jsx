@@ -1,6 +1,33 @@
 import Icon from "./Icon";
 
-export default function PlaceholderImage({ icon = "MapPinned", label, caption }) {
+export default function PlaceholderImage({ icon = "MapPinned", label, caption, image }) {
+  if (image?.src) {
+    return (
+      <figure className="relative overflow-hidden rounded-lg border border-charcoal/10 bg-white/82 p-3 shadow-consultant backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-consultant dark:border-white/10 dark:bg-white/8">
+        <div className="relative min-h-72 overflow-hidden rounded-lg bg-charcoal">
+          <img
+            src={image.src}
+            alt={image.alt || label || ""}
+            className="h-full min-h-72 w-full object-cover"
+            loading="lazy"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/72 via-charcoal/12 to-transparent" />
+          <figcaption className="absolute inset-x-0 bottom-0 p-5">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-gold">
+              {image.label || label}
+            </p>
+            {(image.caption || caption) && (
+              <p className="mt-2 max-w-lg text-sm font-semibold leading-7 text-linen/84">
+                {image.caption || caption}
+              </p>
+            )}
+          </figcaption>
+        </div>
+      </figure>
+    );
+  }
+
   return (
     <div className="relative rounded-lg border border-charcoal/10 bg-white/82 p-5 shadow-consultant backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-consultant dark:border-white/10 dark:bg-white/8">
       <div className="absolute -left-4 top-8 hidden h-40 w-28 -rotate-12 border border-gold/25 bg-gold/10 sm:block" />

@@ -20,6 +20,7 @@ export default function GuidePage({ page }) {
           purpose: page.purpose,
           heroIcon: page.heroIcon,
           placeholder: page.placeholder,
+          image: page.image,
         }}
       />
       {page.showTrustNotice && <TrustNotice notice={trustNotice} />}
@@ -39,10 +40,19 @@ export default function GuidePage({ page }) {
               ))}
             </div>
           </div>
-          <PlaceholderImage icon={page.heroIcon} label={page.placeholder} caption="Replace this dummy visual with a real project image, map, or illustration later." />
+          <PlaceholderImage
+            icon={page.heroIcon}
+            label={page.placeholder}
+            caption="A visual anchor for this part of the guide."
+            image={page.sectionImage || page.image}
+          />
         </div>
       </section>
-      <PagePersonalityBlock block={pagePersonalityBlocks[page.personality]} icon={page.heroIcon} />
+      <PagePersonalityBlock
+        block={pagePersonalityBlocks[page.personality]}
+        icon={page.heroIcon}
+        image={page.sectionImage || page.image}
+      />
       <section className="py-16">
         <div className="section-shell">
           <SectionHeader

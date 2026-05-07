@@ -19,7 +19,7 @@ const accents = {
   },
 };
 
-export default function PagePersonalityBlock({ block, icon }) {
+export default function PagePersonalityBlock({ block, icon, image }) {
   const theme = accents[block.accent] || accents.green;
 
   return (
@@ -76,20 +76,43 @@ export default function PagePersonalityBlock({ block, icon }) {
 
           <div className="grid gap-5">
             <div className="relative overflow-hidden rounded-lg border border-charcoal/10 bg-linen/80 p-5 shadow-soft dark:border-white/10 dark:bg-white/8">
-              <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(45deg,currentColor_1px,transparent_1px),linear-gradient(-45deg,currentColor_1px,transparent_1px)] [background-size:22px_22px] text-emeraldDeep dark:text-gold" />
-              <div className="relative grid min-h-52 place-items-center rounded-lg border border-dashed border-charcoal/18 bg-white/72 p-6 text-center dark:border-white/12 dark:bg-charcoal/60">
-                <div>
-                  <span className="mx-auto grid h-12 w-12 place-items-center rounded-lg bg-charcoal text-gold dark:bg-gold dark:text-charcoal">
-                    <Icon name="MapPinned" className="h-5 w-5" />
-                  </span>
-                  <p className="mt-4 text-sm font-black uppercase tracking-[0.16em] text-charcoal dark:text-linen">
-                    {block.mapLabel}
-                  </p>
-                  <p className="mt-2 text-sm leading-7 text-ink/62 dark:text-cream/62">
-                    Replace this box with a real image, map, or diagram later.
-                  </p>
-                </div>
-              </div>
+              {image?.src ? (
+                <figure className="relative overflow-hidden rounded-lg bg-charcoal">
+                  <img
+                    src={image.src}
+                    alt={image.alt || block.mapLabel}
+                    className="h-72 w-full object-cover"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/78 via-charcoal/14 to-transparent" />
+                  <figcaption className="absolute inset-x-0 bottom-0 p-5">
+                    <p className="text-sm font-black uppercase tracking-[0.16em] text-gold">
+                      {image.label || block.mapLabel}
+                    </p>
+                    <p className="mt-2 text-sm leading-7 text-linen/78">
+                      {image.caption || "A visual reference for this guide section."}
+                    </p>
+                  </figcaption>
+                </figure>
+              ) : (
+                <>
+                  <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(45deg,currentColor_1px,transparent_1px),linear-gradient(-45deg,currentColor_1px,transparent_1px)] [background-size:22px_22px] text-emeraldDeep dark:text-gold" />
+                  <div className="relative grid min-h-52 place-items-center rounded-lg border border-dashed border-charcoal/18 bg-white/72 p-6 text-center dark:border-white/12 dark:bg-charcoal/60">
+                    <div>
+                      <span className="mx-auto grid h-12 w-12 place-items-center rounded-lg bg-charcoal text-gold dark:bg-gold dark:text-charcoal">
+                        <Icon name="MapPinned" className="h-5 w-5" />
+                      </span>
+                      <p className="mt-4 text-sm font-black uppercase tracking-[0.16em] text-charcoal dark:text-linen">
+                        {block.mapLabel}
+                      </p>
+                      <p className="mt-2 text-sm leading-7 text-ink/62 dark:text-cream/62">
+                        Replace this box with a real image, map, or diagram later.
+                      </p>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
             <div className="rounded-lg border border-charcoal/10 bg-white/84 p-5 shadow-soft dark:border-white/10 dark:bg-white/8">
               <p className="text-sm font-black uppercase tracking-[0.16em] text-emeraldDeep dark:text-gold">

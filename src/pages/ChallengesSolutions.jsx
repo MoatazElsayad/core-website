@@ -29,7 +29,17 @@ export default function ChallengesSolutions() {
 
 function ChallengesHero() {
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden border-b border-charcoal/10 bg-[radial-gradient(circle_at_top_right,_rgba(159,47,47,0.15),_transparent_30%),radial-gradient(circle_at_bottom_left,_rgba(17,97,73,0.18),_transparent_26%),linear-gradient(135deg,_#fffaf1_0%,_#f3ecdf_50%,_#efe0d2_100%)] py-16 dark:border-white/10 dark:bg-[radial-gradient(circle_at_top_right,_rgba(200,157,60,0.12),_transparent_30%),radial-gradient(circle_at_bottom_left,_rgba(159,47,47,0.16),_transparent_26%),linear-gradient(135deg,_#171615_0%,_#120f0d_60%,_#1d1713_100%)]">
+    <section
+      className="relative flex min-h-[100svh] items-center overflow-hidden border-b border-charcoal/10 py-16 dark:border-white/10"
+      style={{
+        backgroundImage: challengesPage.hero.image?.src
+          ? `linear-gradient(115deg, rgba(255, 250, 241, 0.88), rgba(255, 250, 241, 0.66)), url(${challengesPage.hero.image.src})`
+          : undefined,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(159,47,47,0.15),_transparent_30%),radial-gradient(circle_at_bottom_left,_rgba(17,97,73,0.18),_transparent_26%)] dark:bg-[linear-gradient(135deg,_rgba(23,22,21,0.82)_0%,_rgba(18,15,13,0.68)_60%,_rgba(29,23,19,0.82)_100%),radial-gradient(circle_at_top_right,_rgba(200,157,60,0.12),_transparent_30%),radial-gradient(circle_at_bottom_left,_rgba(159,47,47,0.16),_transparent_26%)]" />
       <div className="section-shell relative z-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
         <div className="max-w-4xl">
           <p className="inline-flex rounded-full border border-redwood/20 bg-white/70 px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-redwood shadow-soft dark:border-gold/20 dark:bg-white/6 dark:text-gold">
@@ -110,6 +120,17 @@ function ChallengeSection({ challenge, index }) {
       <div className="section-shell grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
         <div className="lg:sticky lg:top-24 lg:self-start">
           <div className="rounded-lg border border-charcoal/10 bg-white/84 p-7 shadow-consultant dark:border-white/10 dark:bg-white/8">
+            {challenge.image?.src && (
+              <div className="mb-6 overflow-hidden rounded-lg bg-charcoal">
+                <img
+                  src={challenge.image.src}
+                  alt={challenge.image.alt || challenge.title}
+                  className="h-56 w-full object-cover"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            )}
             <div className="flex items-center gap-4">
               <span className="grid h-14 w-14 place-items-center rounded-lg bg-charcoal text-gold dark:bg-gold dark:text-charcoal">
                 <Icon name={challenge.icon} className="h-6 w-6" />

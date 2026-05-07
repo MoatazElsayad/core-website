@@ -29,6 +29,129 @@ export const trustNotice = {
     "This educational website provides guidance and orientation. Visa, legal, and healthcare information should always be verified through official sources.",
 };
 
+export const mediaImages = {
+  whyMunich: {
+    src: "https://germanytravelcompany.com/wp-content/uploads/2024/01/Streetcar_Tram_Munich_Germany-1024x682.jpg",
+    alt: "A tram moving through a Munich street",
+    label: "Munich city life",
+    caption: "Transit, public space, and everyday stability in Munich.",
+  },
+  journey: {
+    src: "https://www.wanderingermany.com/wp-content/uploads/2022/08/PXL_20220726_074115137.MP-Large-1024x576.jpg",
+    alt: "A travel route scene in Germany",
+    label: "Step-by-step journey",
+    caption: "A visual reminder that relocation happens in stages.",
+  },
+  visaTravel: {
+    src: "https://preview.redd.it/the-most-powerful-next-to-the-most-expensive-passport-v0-a9ih9fu7e4id1.jpeg?width=1080&crop=smart&auto=webp&s=f57d50462b3c62d476236cfbf644971f093b7690",
+    alt: "Passports placed side by side",
+    label: "Documents and travel",
+    caption: "Passports, paperwork, and preparation before departure.",
+  },
+  accommodation: {
+    src: "https://www.lifewire.com/thmb/3SbOfLCFOBUAZUf5kgZm7EVMd_8=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/simon-hattinga-verschure-5085-51f98f9945a445e3b213ddf32159b016.jpg",
+    alt: "A laptop used for online housing search",
+    label: "Housing search",
+    caption: "Temporary housing and apartment search tools are major first-month priorities.",
+  },
+  foodCulture: {
+    src: "https://joinhalal.com/wp-content/uploads/2024/11/76.jpg",
+    alt: "A Muslim community and faith space",
+    label: "Food and culture",
+    caption: "Faith, food routines, and community help families carry home into a new city.",
+  },
+  faithMosque: {
+    src: "https://joinhalal.com/wp-content/uploads/2024/11/76.jpg",
+    alt: "A mosque interior and prayer space",
+    label: "Faith spaces",
+    caption: "Prayer, community, and cultural continuity matter during integration.",
+  },
+  familyIntegration: {
+    src: "https://renucounselling.ca/wp-content/uploads/2023/12/Immigrant-Mental-Health-Therapy-ReNu-Counselling-Psychotherapy-1-1.jpg",
+    alt: "A family speaking with a counselor",
+    label: "Family support",
+    caption: "Integration includes emotional, social, and practical support.",
+  },
+  educationLanguage: {
+    src: "https://static.dw.com/image/18641006_605.jpg",
+    alt: "People learning German in a classroom",
+    label: "Language and learning",
+    caption: "German classes and school support help families become independent.",
+  },
+  healthSafety: {
+    src: "https://www.investmentvisa.com/images/healthcare-europe.webp",
+    alt: "Healthcare professional in a European medical setting",
+    label: "Healthcare access",
+    caption: "Understanding clinics, insurance, and emergency support protects the family.",
+  },
+  communityEntertainment: {
+    src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/9c/58/0a/fc-bayern-zentrum.jpg?w=2000&h=-1&s=1",
+    alt: "FC Bayern public fan and club space",
+    label: "Community and activities",
+    caption: "Sports, parks, and public spaces help the city feel familiar.",
+  },
+  communityClub: {
+    src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/9c/58/0a/fc-bayern-zentrum.jpg?w=2000&h=-1&s=1",
+    alt: "FC Bayern public fan and club space",
+    label: "Munich football culture",
+    caption: "Shared activities can help children and parents build local confidence.",
+  },
+  challengesHero: {
+    src: "https://s7.tvp.pl/images2/7/e/a/uid_7ea4d0fd473e48ae94bc0d61252af57f_width_1200_play_0_pos_0_gs_0_height_675.jpg",
+    alt: "A family facing a city transition",
+    label: "Challenges with support",
+    caption: "Hard moments become easier when families know the next step.",
+  },
+  challengeLanguage: {
+    src: "https://immigrationlab.org/content/uploads/2024/10/Adult-Learning-Classroom-web-1024x498.jpg",
+    alt: "Adults learning in a classroom",
+    label: "Language barrier",
+    caption: "Language courses are one of the strongest first supports.",
+  },
+  challengeHousing: {
+    src: "https://www.lifewire.com/thmb/3SbOfLCFOBUAZUf5kgZm7EVMd_8=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/simon-hattinga-verschure-5085-51f98f9945a445e3b213ddf32159b016.jpg",
+    alt: "A laptop used for online housing search",
+    label: "Finding housing",
+    caption: "Families often need both temporary housing and longer-term search tools.",
+  },
+  challengeWork: {
+    src: "https://www.expatrio.com/hs-fs/hubfs/Expatrio%20Hatch%20Child%20-%20Theme_2024Migration/Blog%20Graphics/Working%20in%20Germany/how-to-interview-germany.webp?width=1200&name=how-to-interview-germany.webp",
+    alt: "A job interview or professional meeting in Germany",
+    label: "Finding a job",
+    caption: "Career guidance, CV support, and official job services can open doors.",
+  },
+  challengeEducation: {
+    src: "https://ichef.bbci.co.uk/images/ic/1024xn/p0b7g6p8.jpg.webp",
+    alt: "Children in a classroom",
+    label: "Education for children",
+    caption: "School support helps children adjust academically and socially.",
+  },
+  challengeHealthcare: {
+    src: "https://thelanguagegroup.com/wp-content/uploads/2026/03/shutterstock_2643680693-1024x659.jpg",
+    alt: "A healthcare conversation with language support",
+    label: "Healthcare access",
+    caption: "Clear communication matters when families seek medical help.",
+  },
+  challengeCulture: {
+    src: "https://hyphenonline.com/wp-content/uploads/2023/10/02-european-mosques-architecture-1024x768.jpg",
+    alt: "A mosque in Europe",
+    label: "Belonging",
+    caption: "Faith and community spaces can reduce isolation.",
+  },
+  challengeMentalHealth: {
+    src: "https://cdn2.psychologytoday.com/assets/styles/manual_crop_1_91_1_1528x800/public/teaser_image/blog_entry/2024-12/Depositphotos_641051640_XL.jpg?itok=67Qh8Lel",
+    alt: "A supportive therapy conversation",
+    label: "Mental health",
+    caption: "Emotional support is part of rebuilding after displacement.",
+  },
+  challengeFinance: {
+    src: "https://thumbs.dreamstime.com/b/husband-wife-working-family-budget-together-home-happy-middle-aged-sitting-kitchen-table-front-computer-holding-257481762.jpg?w=992",
+    alt: "A family planning a household budget",
+    label: "Financial planning",
+    caption: "Budgeting and support programs help families stabilize.",
+  },
+};
+
 // Team content inserted here - update with final research if needed.
 export const home = {
   hero: {
@@ -53,6 +176,7 @@ export const home = {
     label: "Why Munich?",
     title: "Why Munich?",
     intro: "For many Syrian families, moving to Munich offers a chance to rebuild life in a safe and supportive environment.",
+    image: mediaImages.whyMunich,
     closing:
       "Although the cost of living in Munich is high, the support systems and opportunities available make it a strong option for Syrian families looking for long-term stability and a better future.",
     visualLabel: "Placeholder visual: Munich skyline, family journey, and support systems",
@@ -86,6 +210,7 @@ export const home = {
     title: "Family Journey Overview",
     intro:
       "Your journey will happen step by step. You are not expected to do everything at once - this is a gradual process.",
+    image: mediaImages.journey,
     cta: { label: "View Full Family Journey", path: "/family-journey" },
     stages: [
       { title: "Before arrival", icon: "Files", text: "Preparing documents and planning travel." },
@@ -140,6 +265,7 @@ export const guidePages = {
     purpose:
       "This page will help families organize visa preparation, document checklists, travel planning, and the first arrival steps.",
     heroIcon: "Passport",
+    image: mediaImages.visaTravel,
     placeholder: "Image placeholder: passport, documents, and Munich arrival route",
     helpWith: ["Visa pathway planning", "Document organization", "Appointment preparation", "Flight and first-arrival checklist"],
     cards: [
@@ -166,6 +292,7 @@ export const guidePages = {
     purpose:
       "This page will help families compare housing options, estimate monthly costs, and prepare for temporary and long-term living needs.",
     heroIcon: "Home",
+    image: mediaImages.accommodation,
     placeholder: "Image placeholder: Munich apartment and neighborhood map",
     helpWith: ["Rent range placeholders", "Monthly budget planning", "Temporary accommodation", "Furniture and essentials"],
     cards: [
@@ -192,6 +319,8 @@ export const guidePages = {
     purpose:
       "This page will help families find cultural comfort, faith spaces, food routines, and community support.",
     heroIcon: "Utensils",
+    image: mediaImages.foodCulture,
+    sectionImage: mediaImages.faithMosque,
     placeholder: "Image placeholder: Syrian food, halal groceries, and cultural pattern block",
     helpWith: ["Syrian restaurant placeholders", "Halal grocery planning", "Mosques and prayer spaces", "Cultural identity support"],
     cards: [
@@ -218,6 +347,7 @@ export const guidePages = {
     purpose:
       "This page will help families see each person's integration needs clearly, not only the paperwork.",
     heroIcon: "UsersRound",
+    image: mediaImages.familyIntegration,
     placeholder: "Image placeholder: family support illustration",
     helpWith: ["Father's work pathway", "Mother's language and community choices", "Children's school and friendships", "Family balance"],
     cards: [
@@ -244,6 +374,7 @@ export const guidePages = {
     purpose:
       "This page will help families organize school enrollment, language learning, and parent support.",
     heroIcon: "GraduationCap",
+    image: mediaImages.educationLanguage,
     placeholder: "Image placeholder: school, books, and language learning",
     helpWith: ["German public schools", "Enrollment documents", "Language support", "Parent integration courses"],
     cards: [
@@ -272,6 +403,7 @@ export const guidePages = {
     purpose:
       "This page will help families understand health access, urgent contacts, insurance placeholders, and mental health support.",
     heroIcon: "Hospital",
+    image: mediaImages.healthSafety,
     placeholder: "Image placeholder: healthcare card and emergency contacts",
     helpWith: ["Healthcare access", "Health insurance placeholders", "Emergency contacts", "Mental health and trauma support"],
     cards: [
@@ -299,6 +431,8 @@ export const guidePages = {
     purpose:
       "This page will help families discover parks, libraries, sports, museums, and community meetups.",
     heroIcon: "Trees",
+    image: mediaImages.communityEntertainment,
+    sectionImage: mediaImages.communityClub,
     placeholder: "Image placeholder: Munich city activities and family outings",
     helpWith: ["Parks and low-cost outings", "Football and sports", "Museums and libraries", "Arab and Syrian meetups"],
     cards: [
@@ -325,6 +459,7 @@ export const challenges = [
     title: "Language Barrier",
     category: "Language",
     icon: "Languages",
+    image: mediaImages.challengeLanguage,
     challenge:
       "Many Syrian families arrive without speaking German, making it difficult to work, study, communicate with schools, visit doctors, or handle daily tasks.",
     solutionGroups: [
@@ -352,6 +487,7 @@ export const challenges = [
     title: "Finding Housing",
     category: "Housing",
     icon: "Home",
+    image: mediaImages.challengeHousing,
     challenge:
       "Munich is one of the most expensive cities in Germany, and it can be difficult for refugee families to find affordable apartments quickly.",
     solutionGroups: [
@@ -390,6 +526,7 @@ export const challenges = [
     title: "Finding a Job",
     category: "Work",
     icon: "BriefcaseBusiness",
+    image: mediaImages.challengeWork,
     challenge:
       "Many Syrian refugees struggle to find jobs in Munich because of limited German, lack of local experience, limited professional networks, or difficulty accessing the German job market.",
     solutionGroups: [
@@ -430,6 +567,7 @@ export const challenges = [
     title: "Education for Children",
     category: "Education",
     icon: "School",
+    image: mediaImages.challengeEducation,
     challenge:
       "Syrian children may struggle to enter school because of language barriers and differences between the Syrian and German education systems.",
     solutionGroups: [
@@ -460,6 +598,7 @@ export const challenges = [
     title: "Healthcare Access",
     category: "Health",
     icon: "Hospital",
+    image: mediaImages.challengeHealthcare,
     challenge:
       "Refugee families may not understand how the healthcare system works or how to access medical help.",
     solutionGroups: [
@@ -490,6 +629,7 @@ export const challenges = [
     title: "Cultural Adjustment and Belonging",
     category: "Culture",
     icon: "HeartHandshake",
+    image: mediaImages.challengeCulture,
     challenge:
       "Syrian families may feel isolated or struggle to adapt to German society while maintaining their Syrian identity.",
     solutionGroups: [
@@ -523,6 +663,7 @@ export const challenges = [
     title: "Discrimination and Islamophobia",
     category: "Rights",
     icon: "ShieldAlert",
+    image: mediaImages.challengeCulture,
     challenge:
       "Some Syrian refugees may face discrimination in work, housing, public life, or social situations. Muslim women who wear hijab may also worry about discrimination in the workplace.",
     solutionGroups: [
@@ -556,6 +697,7 @@ export const challenges = [
     title: "Mental Health and Trauma",
     category: "Mental Health",
     icon: "HeartPulse",
+    image: mediaImages.challengeMentalHealth,
     challenge:
       "Many Syrian refugees experience trauma, stress, anxiety, or emotional exhaustion because of war, displacement, family separation, or uncertainty.",
     solutionGroups: [
@@ -584,6 +726,7 @@ export const challenges = [
     title: "Financial Struggles",
     category: "Finance",
     icon: "HandCoins",
+    image: mediaImages.challengeFinance,
     challenge:
       "Families may not have stable income when they first arrive in Munich.",
     solutionGroups: [
@@ -620,6 +763,7 @@ export const challengesPage = {
       "Moving to Munich can bring difficulties, but each challenge can be handled step by step with the right support, resources, and community.",
     purpose: "This page names common challenges without making the family feel alone.",
     heroIcon: "ShieldAlert",
+    image: mediaImages.challengesHero,
     placeholder: "Image placeholder: challenge and solution cards",
   },
   supportBanner: {
@@ -780,6 +924,7 @@ export const familyJourney = {
     purpose:
       "This page turns the migration process into manageable stages with tasks and emotional reminders.",
     heroIcon: "Route",
+    image: mediaImages.journey,
     placeholder: "Image placeholder: roadmap from Syria/Egypt to Munich",
   },
   stages: [
@@ -796,6 +941,7 @@ export const familyJourney = {
     icon: "Route",
     label: "Map placeholder: full family roadmap",
     caption: "Replace with a horizontal/vertical journey diagram or custom class presentation graphic later.",
+    image: mediaImages.journey,
   },
   cta: { title: "Need sources for the final research version?", label: "Open Sources", path: "/sources" },
 };

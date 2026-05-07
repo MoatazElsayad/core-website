@@ -39,6 +39,7 @@ export default function PageHero({ hero, compact = false }) {
           icon={hero.heroIcon}
           label={hero.imageLabel || hero.placeholder}
           caption={hero.imageCaption || "Placeholder visual for future project media"}
+          image={hero.image}
         />
       </div>
     </section>
