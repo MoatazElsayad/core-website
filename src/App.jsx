@@ -16,6 +16,10 @@ import FamilyJourney from "./pages/FamilyJourney";
 import Sources from "./pages/Sources";
 
 export default function App() {
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return localStorage.getItem("munich-bridge-sidebar") === "collapsed";
+  });
   const [theme, setTheme] = useState(() => {
     if (typeof window === "undefined") return "light";
     return localStorage.getItem("munich-bridge-theme") || "light";
@@ -26,12 +30,21 @@ export default function App() {
     localStorage.setItem("munich-bridge-theme", theme);
   }, [theme]);
 
+  useEffect(() => {
+    localStorage.setItem("munich-bridge-sidebar", sidebarCollapsed ? "collapsed" : "expanded");
+  }, [sidebarCollapsed]);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
       <div className="min-h-screen bg-transparent text-charcoal transition-colors duration-300 dark:bg-charcoal dark:text-linen">
-        <Navbar theme={theme} onToggleTheme={() => setTheme((value) => (value === "dark" ? "light" : "dark"))} />
-        <main>
+        <Navbar
+          theme={theme}
+          onToggleTheme={() => setTheme((value) => (value === "dark" ? "light" : "dark"))}
+          collapsed={sidebarCollapsed}
+          onToggleCollapse={() => setSidebarCollapsed((value) => !value)}
+        />
+        <main className={`transition-[padding] duration-300 ${sidebarCollapsed ? "lg:pl-20" : "lg:pl-72"}`}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/visa-travel" element={<VisaTravel />} />
@@ -47,7 +60,9 @@ export default function App() {
             <Route path="/sources" element={<Sources />} />
           </Routes>
         </main>
-        <Footer />
+        <div className={`transition-[padding] duration-300 ${sidebarCollapsed ? "lg:pl-20" : "lg:pl-72"}`}>
+          <Footer />
+        </div>
       </div>
     </BrowserRouter>
   );
