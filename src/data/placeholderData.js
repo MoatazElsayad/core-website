@@ -1,4 +1,4 @@
-// Replace this dummy content with real research later.
+﻿// Replace this dummy content with real research later.
 // The website is intentionally data-driven so the team can update text, links, and images without redesigning pages.
 
 export const siteMeta = {
@@ -398,7 +398,7 @@ export const challenges = [
         items: [
           "Provides job placement support.",
           "Gives access to job listings.",
-          "Offers financial support while unemployed, such as Bürgergeld.",
+          "Offers financial support while unemployed, such as Buergergeld.",
           "Provides personal advisors.",
         ],
       },
@@ -588,7 +588,7 @@ export const challenges = [
       "Families may not have stable income when they first arrive in Munich.",
     solutionGroups: [
       {
-        title: "Bürgergeld",
+        title: "Buergergeld",
         items: ["Monthly financial support for basic needs for eligible people."],
       },
       {
@@ -601,7 +601,7 @@ export const challenges = [
       },
     ],
     usefulLinks: [
-      { label: "Bürgergeld / Citizen's Income", url: "https://www.arbeitsagentur.de/en/citizens-income" },
+      { label: "Buergergeld / Citizen's Income", url: "https://www.arbeitsagentur.de/en/citizens-income" },
       { label: "Child Benefit / Kindergeld", url: "https://www.arbeitsagentur.de/en/family-and-children/child-benefit" },
       { label: "Jobcenter Munich", url: "https://jobcenter-muenchen.de/" },
     ],
@@ -964,3 +964,4 @@ export const familyPlanData = {
     mainConcern: "Housing",
   },
 };
+

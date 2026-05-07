@@ -27,7 +27,7 @@ export default function Navbar({ theme, onToggleTheme, collapsed = false, onTogg
   return (
     <>
       <aside
-        className={`fixed inset-y-0 left-0 z-50 hidden overflow-y-auto border-r border-charcoal/10 bg-linen/92 py-5 shadow-consultant backdrop-blur-xl transition-[width,padding] duration-300 dark:border-white/10 dark:bg-charcoal/94 lg:flex lg:flex-col ${
+        className={`sidebar-scroll fixed inset-y-0 left-0 z-50 hidden overflow-y-auto border-r border-charcoal/10 bg-linen/92 py-5 shadow-consultant backdrop-blur-xl transition-[width,padding] duration-300 dark:border-white/10 dark:bg-charcoal/94 lg:flex lg:flex-col ${
           collapsed ? "w-20 px-3" : "w-72 px-4"
         }`}
       >

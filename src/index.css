@@ -48,6 +48,15 @@ html.dark body {
   scroll-margin-top: 6rem;
 }
 
+.sidebar-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 button,
 a,
 input,
