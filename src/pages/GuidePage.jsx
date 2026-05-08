@@ -8,6 +8,7 @@ import PlaceholderImage from "../components/PlaceholderImage";
 import PagePersonalityBlock from "../components/PagePersonalityBlock";
 import TrustNotice from "../components/TrustNotice";
 import IdentityDivider from "../components/IdentityDivider";
+import VisualGallery from "../components/VisualGallery";
 import { pagePersonalityBlocks, trustNotice } from "../data/placeholderData";
 
 export default function GuidePage({ page }) {
@@ -50,6 +51,7 @@ export default function GuidePage({ page }) {
           />
         </div>
       </section>
+      <VisualGallery gallery={page.gallery} />
       <PagePersonalityBlock
         block={pagePersonalityBlocks[page.personality]}
         icon={page.heroIcon}

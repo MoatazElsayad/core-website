@@ -1,5 +1,6 @@
 import Icon from "./Icon";
 import SectionHeader from "./SectionHeader";
+import { ExternalLink } from "lucide-react";
 
 const accents = {
   red: {
@@ -119,14 +120,28 @@ export default function PagePersonalityBlock({ block, icon, image }) {
                 Future links
               </p>
               <div className="mt-4 grid gap-3">
-                {block.quickLinks.map((link) => (
-                  <div
-                    key={link}
-                    className={`rounded-lg px-4 py-3 text-sm font-black ${theme.badge}`}
-                  >
-                    {link}
-                  </div>
-                ))}
+                {block.quickLinks.map((link) => {
+                  const label = typeof link === "string" ? link : link.label;
+                  const url = typeof link === "string" ? "" : link.url;
+                  const className = `rounded-lg px-4 py-3 text-sm font-black ${theme.badge}`;
+
+                  return url ? (
+                    <a
+                      key={`${label}-${url}`}
+                      href={url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`${className} inline-flex items-center justify-between gap-3 transition hover:-translate-y-0.5`}
+                    >
+                      <span>{label}</span>
+                      <ExternalLink className="h-4 w-4 shrink-0" />
+                    </a>
+                  ) : (
+                    <div key={label} className={className}>
+                      {label}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
