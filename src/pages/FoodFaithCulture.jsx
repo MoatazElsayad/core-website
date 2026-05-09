@@ -7,57 +7,105 @@ const page = guidePages.foodFaithCulture;
 
 const sections = [
   {
-    eyebrow: "Culture",
-    title: "Your Syrian identity can grow in Munich.",
+    eyebrow: "Muslim community",
+    title: "Faith and culture can stay visible in Munich.",
     intro:
-      "Munich provides an environment where Syrian identity can thrive while families continue balancing German daily life with cultural roots, traditions, and language.",
+      "Munich has a well-established Muslim community, including Arabs and Syrians. Halal food, Arabic-speaking grocery stores, and active mosques are readily accessible.",
     image: mediaImages.eidMunichCityHall,
     points: [
-      "The Best of Both Worlds: Families benefit from the stability of a strong German economy while being supported by a large, established Arab community.",
-      "Strength in Numbers: Groups like Munich Syrians Meetup can help families make friends, find practical advice on local systems, and celebrate cultural holidays together.",
-      "Your Future: In Munich, identity does not disappear. It evolves while families keep traditions close and use the city's professional and educational opportunities.",
+      "Integration in Germany does not mean losing faith or culture.",
+      "Munich's Arab and Muslim communities can help families find familiar spaces, advice, and belonging.",
+      "Marienplatz has been illuminated during Eid al-Fitr celebrations, reflecting the city's multicultural welcome.",
     ],
-    links: [],
+    links: [
+      { label: "HalalTrip Munich guide", url: "https://www.halaltrip.com/city-guide-details/151/munich/" },
+    ],
     variant: "syria",
   },
   {
-    eyebrow: "Food",
-    title: "Familiar flavors make a new city feel softer.",
+    eyebrow: "Restaurants",
+    title: "Syrian and Middle Eastern food is part of city life.",
     intro:
-      "Accessing the flavors of home is a source of comfort and familiarity as families settle into a new life.",
+      "Munich has a solid selection of halal Arabic and Middle Eastern restaurants that can offer families familiar food, language, and hospitality.",
     image: mediaImages.arabeskDining,
     points: [
-      "The Global Pantry: High demand for international products means Syrian staples like labneh, halloumi, and high-quality olive oils are easy to find.",
-      "Halal Groceries: Specialty stores like Al Aksa Market and Orient Markt provide fresh, halal-certified meats and authentic spices.",
-      "Syrian Restaurants: Culinary culture is flourishing in areas like Maxvorstadt, and places like Damascus Falafel offer familiar language and homeland hospitality.",
+      "Bab Al Yemen serves traditional Yemeni and Middle Eastern dishes and is popular with the local Arab community.",
+      "Beirutbeirut, Sababa Restaurant, Make Falafel Not War, Shandiz Persian Grill, and Arabesk give families several halal and Arabic food options.",
+      "Make Falafel Not War on Kapuzinerstrasse is budget-friendly, while Arabesk is useful for dine-in and delivery nights.",
     ],
     links: [
       {
-        label: "Middle Eastern restaurants in Munich",
-        url: "https://www.tripadvisor.com/Restaurants-g187309-c30-Munich_Upper_Bavaria_Bavaria.html",
+        label: "Top halal restaurants",
+        url: "https://www.tripadvisor.com/Restaurants-g187309-zfz10751-Munich_Upper_Bavaria_Bavaria.html",
+      },
+      { label: "Wolt halal delivery", url: "https://wolt.com/en/deu/munich/category/halal" },
+      {
+        label: "25 halal restaurants",
+        url: "https://en.ibnbattutatravel.com/europe/uncover-munich-germany-s-hidden-halal-restaurants-25-must-visit-places/",
       },
     ],
     variant: "germany",
   },
   {
-    eyebrow: "Faith",
-    title: "Faith can remain visible, protected, and shared.",
+    eyebrow: "Halal groceries",
+    title: "Families can cook Syrian food at home.",
     intro:
-      "Munich is a city where faith is supported and respected.",
+      "Turkish and Arab grocery stores are common in Sendling, Giesing, and near central markets, making daily halal cooking easier.",
+    image: mediaImages.foodCulture,
+    points: [
+      "Turkish supermarkets carry halal meat, Middle Eastern spices, Arabic cheeses, dates, tahini, freekeh, and other staples, often cheaper than German supermarkets.",
+      "Ali Gemuese Doener at Landsberger Str. 104 is known for low-price halal food, shawarma, kunafa, and Arab grocery staples.",
+      "Lidl, Aldi, Netto, REWE, and Edeka increasingly carry halal-certified products or dedicated halal sections in Muslim-majority neighborhoods.",
+      "Grocera and Yababa offer Munich halal grocery delivery, including South Asian, Turkish, and Middle Eastern products.",
+    ],
+    links: [
+      { label: "Munich halal stores map", url: "https://halalplaces.org/de/by/munich" },
+      { label: "Online halal delivery guide", url: "https://liveingermany.de/online-halal-meat-in-germany/" },
+    ],
+    variant: "bridge",
+  },
+  {
+    eyebrow: "Mosques",
+    title: "Munich has active mosques for Arab and Muslim families.",
+    intro:
+      "Friday prayer, Arabic classes, Quran programs, Ramadan iftars, and women's or youth activities are available across several Munich communities.",
     images: [mediaImages.faithMosque],
     points: [
-      "The Benefit of Diversity: Munich's multiculturalism lets families practice faith openly in a city that values religious freedom and protects worship traditions.",
-      "Islamic Practices: Munich has a strong and visible Muslim community, with mosques in districts like Pasing and Sendling serving as anchors for support, religious education, and belonging.",
-      "A Diversity of Syrian Faiths: Munich celebrates the Syrian mosaic, including Syrian Christian communities and other traditions with churches and dedicated heritage groups.",
-      "Multicultural Acceptance: Muslims, Christians, and people of all faiths live side by side, helping families integrate without feeling they must lose who they are.",
+      "Islamisches Zentrum Muenchen at Wallnerstrasse 1 is the main Islamic Center of Munich, established in 1973, with Friday prayers in Arabic and German and weekend Arabic school.",
+      "Mosque Al-Ummah offers German and Arabic services, Quran and Arabic classes, and Friday sermons in both languages.",
+      "Alahibba Mosque offers children's Quran programs, Arabic lessons, women's groups, mothers' cafes, and youth activities.",
+      "DITIB Mehmet Akif Moschee, Masjid Al-Salam, and Muenchner Forum fuer Islam also provide family-friendly Muslim community spaces.",
     ],
     links: [
       {
         label: "Islamic Center Munich",
         url: "https://www.islamisches-zentrum-muenchen.de/",
       },
+      { label: "Mosque Al-Ummah", url: "https://moschee-al-ummah.de/en/home-en/" },
+      { label: "Alahibba Mosque", url: "https://www.alahibba.de/en/home/" },
+      { label: "JoinHalal mosque listing", url: "https://joinhalal.com/en/mosques/Islamic-Center-Munich-6500/" },
     ],
     variant: "bridge",
+  },
+  {
+    eyebrow: "Community and identity",
+    title: "You will not arrive alone.",
+    intro:
+      "Germany is home to over 1.28 million Syrians, the largest Syrian diaspora outside the Middle East, and Munich has active Arab and Muslim support networks.",
+    image: mediaImages.eidMunichCityHall,
+    points: [
+      "Search Arabic Facebook groups such as Syrians in Munich for housing tips, job offers, and local meetups.",
+      "Caritas Muenchen, AWO, the Munich Refugee Council, and the Integreat Munich App can support housing, schooling, paperwork, and social services.",
+      "Arabic weekend schools, Arabic TV and streaming, Syrian cooking, mosque events, international festivals, and St. Mary's Syriac Orthodox Church can help preserve identity.",
+      "The goal is integration without assimilation: learn German and participate in society while keeping Arabic, faith, and Syrian traditions alive for children.",
+    ],
+    links: [
+      { label: "Caritas Muenchen", url: "https://www.caritas-muenchen.de" },
+      { label: "Munich Refugee Council", url: "https://muenchner-fluechtlingsrat.de" },
+      { label: "Integreat Munich", url: "https://integreat.app/muenchen/en/" },
+      { label: "St. Mary's Syriac Orthodox Church", url: "https://syriacorthodoxchurchmunich.de" },
+    ],
+    variant: "syria",
   },
 ];
 

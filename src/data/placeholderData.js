@@ -108,6 +108,12 @@ export const mediaImages = {
     label: "Qualification recognition",
     caption: "Professional certificates can be reviewed so previous experience connects to work in Germany.",
   },
+  bellevueLanguageCafe: {
+    src: "https://hirnerundriehl.de/wp-content/uploads/2020/10/8004913.jpg",
+    alt: "People interacting at Bellevue di Monaco",
+    label: "Language cafes",
+    caption: "Informal community spaces can help parents practice German in a relaxed setting.",
+  },
   educationLanguage: {
     src: "https://static.dw.com/image/18641006_605.jpg",
     alt: "People learning German in a classroom",
@@ -512,12 +518,12 @@ export const guidePages = {
     path: "/education-language",
     label: "Learning",
     title: "Education and Language",
-    subtitle: "Schools, integration courses, and parent confidence.",
+    subtitle: "School enrollment, youth pathways, parent German learning, and counseling support.",
     purpose:
-      "This page will help families organize school enrollment, language learning, and parent support.",
+      "Munich provides structured pathways to help children and parents settle into their learning journeys.",
     heroIcon: "GraduationCap",
     image: mediaImages.educationLanguage,
-    placeholder: "Image placeholder: school, books, and language learning",
+    placeholder: "School, books, and language learning",
     helpWith: ["German public schools", "Enrollment documents", "Language support", "Parent integration courses"],
     cards: [
       { title: "German public schools", tag: "School", icon: "School", description: "Placeholder explanation for school access, grade placement, and routines." },
@@ -541,13 +547,13 @@ export const guidePages = {
     path: "/health-safety",
     label: "Safety",
     title: "Health and Safety",
-    subtitle: "Healthcare, insurance, emergency contacts, and wellbeing.",
+    subtitle: "Insurance card, clinics, emergency numbers, mental health, and Arabic-speaking support.",
     purpose:
-      "This page will help families understand health access, urgent contacts, insurance placeholders, and mental health support.",
+      "This page is a help center for healthcare access, urgent contacts, and trusted support in Munich.",
     heroIcon: "Hospital",
     image: mediaImages.healthSafety,
-    placeholder: "Image placeholder: healthcare card and emergency contacts",
-    helpWith: ["Healthcare access", "Health insurance placeholders", "Emergency contacts", "Mental health and trauma support"],
+    placeholder: "Healthcare card and emergency contacts",
+    helpWith: ["Insurance card", "Clinics and urgent care", "Emergency numbers", "Mental health and Arabic-speaking support"],
     cards: [
       { title: "Healthcare access", tag: "Health", icon: "Hospital", description: "Dummy guide for clinics, appointments, language support, and documents." },
       { title: "Health insurance", tag: "Insurance", icon: "ShieldCheck", description: "Placeholder for insurance pathways, eligibility, and official verification." },
@@ -569,13 +575,13 @@ export const guidePages = {
     path: "/community-entertainment",
     label: "Belonging",
     title: "Community and Entertainment",
-    subtitle: "Build a social life, family routines, and local confidence.",
+    subtitle: "Football, parks, libraries, museums, and Arab community spaces.",
     purpose:
-      "This page will help families discover parks, libraries, sports, museums, and community meetups.",
+      "This page helps families find social routines, low-cost outings, and community connection in Munich.",
     heroIcon: "Trees",
     image: mediaImages.communityEntertainment,
     sectionImage: mediaImages.communityClub,
-    placeholder: "Image placeholder: Munich city activities and family outings",
+    placeholder: "Munich city activities and family outings",
     helpWith: ["Parks and low-cost outings", "Football and sports", "Museums and libraries", "Arab and Syrian meetups"],
     cards: [
       { title: "English Garden", tag: "Parks", icon: "Trees", description: "Placeholder for walking, children, low-cost leisure, and green space." },
