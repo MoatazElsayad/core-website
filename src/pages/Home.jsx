@@ -16,10 +16,6 @@ export default function Home() {
       <WhyMunichSection />
       <IdentityDivider variant="germany" subtle />
       <GuideSectionsBand />
-      <IdentityDivider variant="bridge" />
-      <JourneySection />
-      <IdentityDivider variant="syria" subtle />
-      <IdentitySection />
     </>
   );
 }
@@ -162,54 +158,7 @@ function GuideSectionsBand() {
   );
 }
 
-function JourneySection() {
-  return (
-    <section className="flex min-h-[100svh] items-center border-b border-charcoal/10 bg-[linear-gradient(180deg,_rgba(255,250,241,0.96)_0%,_rgba(240,234,223,0.96)_100%)] py-16 dark:border-white/10 dark:bg-[linear-gradient(180deg,_#151412_0%,_#100f0e_100%)]">
-      <div className="section-shell">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-          <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.24em] text-emeraldDeep dark:text-gold">
-              {home.journeyOverview.label}
-            </p>
-            <h2 className="mt-5 font-display text-4xl font-bold text-charcoal dark:text-linen sm:text-5xl">
-              {home.journeyOverview.title}
-            </h2>
-            <p className="mt-6 text-lg leading-9 text-ink/72 dark:text-cream/76">
-              {home.journeyOverview.intro}
-            </p>
-          </div>
-          <PhotoPanel image={home.journeyOverview.image} />
-        </div>
-        <div className="mt-14 grid gap-4 xl:grid-cols-5">
-          {home.journeyOverview.stages.map((stage, index) => (
-            <article
-              key={stage.title}
-              className="relative rounded-lg border border-charcoal/10 bg-white/84 p-6 shadow-soft dark:border-white/10 dark:bg-white/8"
-            >
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-redwood dark:text-gold">
-                Step {String(index + 1).padStart(2, "0")}
-              </p>
-              <span className="mt-5 grid h-12 w-12 place-items-center rounded-lg bg-charcoal text-gold dark:bg-gold dark:text-charcoal">
-                <Icon name={stage.icon} className="h-5 w-5" />
-              </span>
-              <h3 className="mt-5 text-xl font-black text-charcoal dark:text-linen">{stage.title}</h3>
-              <p className="mt-3 text-sm leading-8 text-ink/68 dark:text-cream/70">{stage.text}</p>
-            </article>
-          ))}
-        </div>
-        <div className="mt-10">
-          <Link
-            to={home.journeyOverview.cta.path}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-charcoal px-6 py-4 text-sm font-black text-linen transition hover:-translate-y-0.5 hover:bg-ink focus:outline-none focus:ring-4 focus:ring-gold/25 dark:bg-gold dark:text-charcoal"
-          >
-            {home.journeyOverview.cta.label}
-            <Icon name="Route" className="h-4 w-4" />
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
+
 
 function PhotoPanel({ image, className = "" }) {
   if (!image?.src) return null;
@@ -238,36 +187,4 @@ function PhotoPanel({ image, className = "" }) {
   );
 }
 
-function IdentitySection() {
-  return (
-    <section className="flex min-h-[100svh] items-center bg-[radial-gradient(circle_at_bottom_left,_rgba(17,97,73,0.18),_transparent_26%),linear-gradient(135deg,_#171615_0%,_#11100f_60%,_#1b1612_100%)] py-16 text-linen">
-      <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div>
-          <p className="text-sm font-black uppercase tracking-[0.24em] text-gold">{home.culturalIdentity.label}</p>
-          <h2 className="mt-5 font-display text-4xl font-bold sm:text-5xl">{home.culturalIdentity.title}</h2>
-          <p className="mt-6 text-lg leading-9 text-cream/78">{home.culturalIdentity.message}</p>
-        </div>
-        <div className="space-y-6">
-          <div className="grid gap-3 sm:grid-cols-2">
-            {home.culturalIdentity.highlights.map((highlight) => (
-              <div key={highlight} className="rounded-lg border border-white/10 bg-white/8 p-5 text-sm font-black uppercase tracking-[0.14em] text-cream">
-                {highlight}
-              </div>
-            ))}
-          </div>
-          <div className="rounded-lg border border-gold/20 bg-white/6 p-6">
-            <h3 className="text-2xl font-black text-linen">{home.cta.title}</h3>
-            <p className="mt-4 text-sm leading-8 text-cream/72">{home.cta.text}</p>
-            <Link
-              to={home.cta.path}
-              className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-4 text-sm font-black text-charcoal transition hover:-translate-y-0.5 hover:bg-[#d6ad51] focus:outline-none focus:ring-4 focus:ring-gold/25"
-            >
-              {home.cta.label}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+
