@@ -2,17 +2,14 @@ import { useRef, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
+  AlertTriangle,
   ClipboardCheck,
-  Download,
   FileText,
-  HeartHandshake,
-  Loader2,
+  Printer,
   RotateCcw,
   Sparkles,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
 import Icon from "./Icon";
 import { familyPlanData } from "../data/placeholderData";
 import { buildFamilyPlan } from "../utils/familyPlanGenerator";
@@ -23,7 +20,6 @@ export default function FamilyPlanForm() {
   const [step, setStep] = useState(0);
   const [form, setForm] = useState(initialForm);
   const [plan, setPlan] = useState(null);
-  const [pdfState, setPdfState] = useState("idle");
   const reportRef = useRef(null);
 
   const hasChildren = Number(form.childrenCount) > 0;
@@ -63,47 +59,11 @@ export default function FamilyPlanForm() {
   function startOver() {
     setForm(initialForm);
     setPlan(null);
-    setPdfState("idle");
     setStep(0);
   }
 
-  async function downloadPdf() {
-    if (!reportRef.current) return;
-
-    try {
-      setPdfState("loading");
-      const canvas = await html2canvas(reportRef.current, {
-        backgroundColor: "#fffaf1",
-        scale: 2,
-        useCORS: true,
-      });
-      const pdf = new jsPDF("p", "mm", "a4");
-      const pageWidth = pdf.internal.pageSize.getWidth();
-      const pageHeight = pdf.internal.pageSize.getHeight();
-      const margin = 10;
-      const imgWidth = pageWidth - margin * 2;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      const imgData = canvas.toDataURL("image/png");
-
-      let remainingHeight = imgHeight;
-      let position = margin;
-
-      pdf.addImage(imgData, "PNG", margin, position, imgWidth, imgHeight);
-      remainingHeight -= pageHeight - margin * 2;
-
-      while (remainingHeight > 0) {
-        position = remainingHeight - imgHeight + margin;
-        pdf.addPage();
-        pdf.addImage(imgData, "PNG", margin, position, imgWidth, imgHeight);
-        remainingHeight -= pageHeight - margin * 2;
-      }
-
-      pdf.save(familyPlanData.reportLabels.pdfFileName);
-      setPdfState("done");
-    } catch (error) {
-      console.error(error);
-      setPdfState("error");
-    }
+  function printPlan() {
+    window.print();
   }
 
   return (
@@ -119,7 +79,7 @@ export default function FamilyPlanForm() {
             </h2>
             <p className="mt-4 text-base leading-8 text-cream/72">
               A deeper intake that connects the family's answers to every major
-              Munich Bridge guide section, then creates a downloadable report.
+              Munich Bridge guide section, then creates a printable report.
             </p>
 
             <div className="mt-8 rounded-lg border border-white/12 bg-white/8 p-5">
@@ -182,8 +142,7 @@ export default function FamilyPlanForm() {
                 plan={plan}
                 form={form}
                 reportRef={reportRef}
-                pdfState={pdfState}
-                onDownloadPdf={downloadPdf}
+                onPrintPlan={printPlan}
                 onStartOver={startOver}
               />
             )}
@@ -352,7 +311,7 @@ function SelectField({ label, name, value, onChange, options, disabled = false, 
   );
 }
 
-function ReportCard({ plan, form, reportRef, pdfState, onDownloadPdf, onStartOver }) {
+function ReportCard({ plan, form, reportRef, onPrintPlan, onStartOver }) {
   if (!plan) {
     return (
       <div className="rounded-lg border border-gold/25 bg-gold/10 p-6 text-cream">
@@ -366,59 +325,79 @@ function ReportCard({ plan, form, reportRef, pdfState, onDownloadPdf, onStartOve
 
   return (
     <div>
-      <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
+      <div className="no-print mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
         <button type="button" onClick={onStartOver} className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/8 px-4 py-3 text-sm font-black text-cream transition hover:bg-white/12">
           <RotateCcw className="h-4 w-4" />
           Start Over
         </button>
-        <button type="button" onClick={onDownloadPdf} disabled={pdfState === "loading"} className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-4 py-3 text-sm font-black text-charcoal transition hover:-translate-y-0.5 hover:bg-[#d6ad51] disabled:cursor-wait disabled:opacity-70">
-          {pdfState === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}
-          {pdfState === "loading" ? "Preparing PDF" : "Download PDF"}
+        <button type="button" onClick={onPrintPlan} className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-4 py-3 text-sm font-black text-charcoal transition hover:-translate-y-0.5 hover:bg-[#d6ad51]">
+          <Printer className="h-4 w-4" />
+          Print Plan
         </button>
       </div>
 
-      <div ref={reportRef} className="rounded-lg bg-linen p-5 text-charcoal shadow-consultant sm:p-7">
+      <div ref={reportRef} className="family-plan-print rounded-lg bg-linen p-5 text-charcoal shadow-consultant sm:p-7">
         <ReportHeader plan={plan} form={form} />
         <ReportSection title="1. Family Profile Summary">
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {plan.profile.map(([label, value]) => (
-              <div key={label} className="rounded-lg border border-charcoal/10 bg-white p-4">
-                <p className="text-xs font-black uppercase tracking-[0.14em] text-redwood">{label}</p>
-                <p className="mt-2 text-sm font-bold text-ink/78">{value}</p>
-              </div>
+          <ProfileGrid items={plan.profile} />
+          <ul className="mt-4 grid gap-3 text-sm font-semibold leading-7 text-ink/72 lg:grid-cols-2">
+            {plan.familySnapshot.map((item) => (
+              <li key={item} className="rounded-lg border border-charcoal/10 bg-white p-4">
+                {item}
+              </li>
             ))}
-          </div>
+          </ul>
         </ReportSection>
-        <ReportSection title="2. Detected Case Profile">
+
+        <ReportSection title="2. Recommended Plan Name">
           <div className="rounded-lg border border-emeraldDeep/20 bg-emeraldDeep/8 p-5">
             <div className="flex items-start gap-4">
               <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-emeraldDeep text-linen">
-                <Icon name={plan.caseProfile.icon} className="h-6 w-6" />
+                <Icon name={plan.plan.icon} className="h-6 w-6" />
               </span>
               <div>
-                <h4 className="text-xl font-black text-charcoal">{plan.caseProfile.title}</h4>
-                <p className="mt-2 text-sm leading-7 text-ink/72">{plan.caseProfile.description}</p>
+                <h4 className="text-2xl font-black text-charcoal">{plan.plan.title}</h4>
+                <p className="mt-2 text-sm leading-7 text-ink/72">{plan.plan.matchNote}</p>
               </div>
             </div>
           </div>
         </ReportSection>
-        <ReportSection title="3. Priority Timeline">
-          <div className="grid gap-4 lg:grid-cols-5">
-            {plan.timeline.map((stage) => (
-              <ReportList key={stage.key} title={stage.title} items={stage.items} compact />
-            ))}
+
+        <ReportSection title="3. Main Priority">
+          <div className="rounded-lg border border-charcoal/10 bg-white p-5">
+            <p className="text-base font-bold leading-8 text-ink/76">{plan.plan.mainPriority}</p>
           </div>
         </ReportSection>
-        <ReportSection title="4. Website Category Guidance">
-          <div className="grid gap-4 lg:grid-cols-2">
-            {plan.categoryGuidance.map((category) => (
-              <CategoryReport key={category.key} category={category} />
-            ))}
-          </div>
-        </ReportSection>
-        <ReportSection title="5. Recommended Website Pages">
+
+        <ReportSection title="4. Estimated Monthly Cost">
+          <p className="mb-4 rounded-lg border border-gold/30 bg-gold/12 p-4 text-sm font-bold leading-7 text-ink/72">
+            {plan.costContext}
+          </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {plan.recommendedPages.map((page) => (
+            {plan.plan.costBreakdown.map(([label, amount]) => (
+              <div key={label} className="rounded-lg border border-charcoal/10 bg-white p-4">
+                <p className="text-xs font-black uppercase tracking-[0.14em] text-redwood">{label}</p>
+                <p className="mt-2 text-lg font-black text-charcoal">{amount}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 rounded-lg bg-charcoal p-4 text-base font-black text-linen">
+            Estimated total: {plan.plan.estimatedTotal}
+          </p>
+          <p className="mt-3 text-xs font-semibold leading-6 text-ink/60">{plan.estimateNotice}</p>
+        </ReportSection>
+
+        <ReportSection title="5. How the Family Can Afford It">
+          <AdviceList items={plan.plan.affordability} />
+        </ReportSection>
+
+        <ReportSection title="6. First Steps">
+          <StepList items={plan.plan.firstSteps} />
+        </ReportSection>
+
+        <ReportSection title="7. Recommended Website Pages">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {plan.plan.recommendedPages.map((page) => (
               <Link key={page.path} to={page.path} className="rounded-lg border border-charcoal/10 bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-soft">
                 <p className="text-sm font-black text-emeraldDeep">{page.title}</p>
                 <p className="mt-2 text-xs leading-6 text-ink/64">{page.reason}</p>
@@ -426,21 +405,25 @@ function ReportCard({ plan, form, reportRef, pdfState, onDownloadPdf, onStartOve
             ))}
           </div>
         </ReportSection>
-        <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_1fr]">
-          <ReportList title="6. Key Source Links" items={plan.sourceLinks.map((link) => link.label)} compact />
-          <div className="rounded-lg border border-emeraldDeep/20 bg-emeraldDeep/8 p-5">
-            <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-lg bg-emeraldDeep text-linen">
-                <HeartHandshake className="h-5 w-5" />
+
+        <ReportSection title="8. Important Reminder">
+          <div className="rounded-lg border border-redwood/30 bg-redwood/10 p-5">
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-redwood text-linen">
+                <AlertTriangle className="h-5 w-5" />
               </span>
-              <h4 className="text-sm font-black uppercase tracking-[0.14em] text-emeraldDeep">7. Emotional Support Note</h4>
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.14em] text-redwood">Official verification required</p>
+                <p className="mt-2 text-sm font-bold leading-7 text-ink/76">{plan.supportReminder}</p>
+              </div>
             </div>
-            <p className="mt-4 text-sm leading-7 text-ink/72">{plan.emotionalSupport}</p>
           </div>
-        </div>
-        <p className="mt-6 rounded-lg border border-charcoal/10 bg-white p-4 text-xs font-semibold leading-6 text-ink/60">
-          {plan.educationalNotice}
-        </p>
+          <ul className="mt-4 space-y-2 text-xs font-semibold leading-6 text-ink/60">
+            {plan.sourceNotes.map((note) => (
+              <li key={note}>{note}</li>
+            ))}
+          </ul>
+        </ReportSection>
       </div>
     </div>
   );
@@ -476,50 +459,48 @@ function ReportSection({ title, children }) {
   );
 }
 
-function CategoryReport({ category }) {
-  const tone = {
-    Urgent: "border-redwood/25 bg-redwood/8 text-redwood",
-    Important: "border-gold/35 bg-gold/12 text-ink",
-    Helpful: "border-emeraldDeep/25 bg-emeraldDeep/8 text-emeraldDeep",
-  }[category.urgency];
-
+function ProfileGrid({ items }) {
   return (
-    <article className="rounded-lg border border-charcoal/10 bg-white p-5">
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <span className="grid h-10 w-10 place-items-center rounded-lg bg-emeraldDeep/10 text-emeraldDeep">
-            <Icon name={category.icon} className="h-5 w-5" />
-          </span>
-          <h5 className="text-base font-black text-charcoal">{category.title}</h5>
+    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {items.map(([label, value]) => (
+        <div key={label} className="rounded-lg border border-charcoal/10 bg-white p-4">
+          <p className="text-xs font-black uppercase tracking-[0.14em] text-redwood">{label}</p>
+          <p className="mt-2 text-sm font-bold text-ink/78">{value}</p>
         </div>
-        <span className={`rounded-full border px-3 py-1 text-xs font-black ${tone}`}>{category.urgency}</span>
-      </div>
-      <p className="mt-3 text-sm font-semibold leading-7 text-ink/72">{category.summary}</p>
-      <p className="mt-4 text-xs font-black uppercase tracking-[0.14em] text-redwood">Do next</p>
-      <ul className="mt-3 space-y-2 text-sm leading-7 text-ink/72">
-        {category.actions.map((action) => (
-          <li key={action} className="flex gap-3">
-            <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-gold" />
-            <span>{action}</span>
-          </li>
-        ))}
-      </ul>
-    </article>
+      ))}
+    </div>
   );
 }
 
-function ReportList({ title, items, compact = false }) {
+function AdviceList({ items }) {
   return (
-    <div className="rounded-lg border border-charcoal/10 bg-white p-5">
-      <h4 className="text-sm font-black uppercase tracking-[0.14em] text-redwood">{title}</h4>
-      <ul className={`mt-4 space-y-3 ${compact ? "text-sm" : "text-sm leading-7"} text-ink/72`}>
+    <div className="rounded-lg border border-gold/35 bg-gold/12 p-5">
+      <ul className="grid gap-3 text-sm font-bold leading-7 text-ink/76 lg:grid-cols-2">
         {items.map((item) => (
-          <li key={item} className="flex gap-3">
+          <li key={item} className="flex gap-3 rounded-lg bg-white/78 p-3">
             <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-gold" />
             <span>{item}</span>
           </li>
         ))}
       </ul>
     </div>
+  );
+}
+
+function StepList({ items }) {
+  return (
+    <ol className="grid gap-3 lg:grid-cols-2">
+      {items.map((item, index) => (
+        <li key={item} className="flex gap-3 rounded-lg border border-charcoal/10 bg-white p-4 text-sm font-bold leading-7 text-ink/72">
+          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-emeraldDeep text-linen">
+            <Icon name="CheckCircle2" className="h-4 w-4" />
+          </span>
+          <span>
+            <span className="font-black text-charcoal">{index + 1}. </span>
+            {item}
+          </span>
+        </li>
+      ))}
+    </ol>
   );
 }

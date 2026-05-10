@@ -97,3 +97,35 @@ select {
     transform: translateY(0);
   }
 }
+
+@media print {
+  body {
+    background: #fffaf1 !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .family-plan-print,
+  .family-plan-print * {
+    visibility: visible;
+  }
+
+  .family-plan-print {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .family-plan-print a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+}
