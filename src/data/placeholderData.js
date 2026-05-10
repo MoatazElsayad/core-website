@@ -230,7 +230,6 @@ export const home = {
     reasons: [
       { title: "Safety and stability", icon: "ShieldCheck", text: "Families can live without fear of war or conflict." },
       { title: "Support for refugees", icon: "HeartHandshake", text: "Families may access housing assistance, financial support, and integration programs depending on their legal status." },
-      { title: "Education for children", icon: "School", text: "Schools provide support for non-German-speaking students, helping children adjust and continue their education." },
       { title: "Language learning opportunities", icon: "Languages", text: "Free or low-cost German courses can help families integrate faster." },
       { title: "Job opportunities", icon: "BriefcaseBusiness", text: "Many Syrians can search for work in skilled trades, services, and technical fields." },
       { title: "Healthcare access", icon: "Hospital", text: "Families can receive medical care and support when needed." },
