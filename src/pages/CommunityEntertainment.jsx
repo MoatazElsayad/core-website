@@ -36,8 +36,8 @@ const sections = [
       "Parks are especially useful for first months when families need low-cost routines and children need movement.",
     ],
     links: [
-      { label: "English Garden map", url: "https://maps.app.goo.gl/8WvK5x2z6D7B4M9v9" },
-      { label: "Olympic Park map", url: "https://maps.app.goo.gl/XvJ8wQkP7p5X6L7z9" },
+      { label: "English Garden map", url: "https://maps.app.goo.gl/BzooY8vxEeBTNbPN9" },
+      { label: "Olympic Park map", url: "https://maps.app.goo.gl/q5FNdVymidJDUz8J9" },
     ],
     variant: "syria",
   },
@@ -53,8 +53,8 @@ const sections = [
       "The Deutsches Museum is the world's largest science and technology museum, and the Kids' Kingdom section is useful for younger children.",
     ],
     links: [
-      { label: "Gasteig HP8 map", url: "https://maps.app.goo.gl/Yw8S9D6Z7B2C5M1v9" },
-      { label: "Deutsches Museum map", url: "https://maps.app.goo.gl/4BvL8K2M7C3D5X1v9" },
+      { label: "Gasteig HP8 map", url: "https://maps.app.goo.gl/zJUxG9AGi8XpPBHx6" },
+      { label: "Deutsches Museum map", url: "https://maps.app.goo.gl/hNUqBt2i5V9HS24f9" },
       { label: "Deutsches Museum", url: "https://www.deutsches-museum.de/museumsinsel/besuch" },
     ],
     variant: "bridge",
@@ -71,7 +71,7 @@ const sections = [
       "Community meetups can help families build a social circle beyond school, work, and appointments.",
     ],
     links: [
-      { label: "Goethestrasse map", url: "https://maps.app.goo.gl/vX9Y6Z3B2C5M8L1v9" },
+      { label: "Goethestrasse map", url: "https://maps.app.goo.gl/VTbs1JPYbo2puE8U7" },
       { label: "Arabic meetups in Munich", url: "https://www.meetup.com/topics/arabic/de/muenchen/" },
     ],
     variant: "syria",

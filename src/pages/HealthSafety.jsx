@@ -7,17 +7,17 @@ const page = guidePages.healthSafety;
 
 const clinicRows = [
   ["Refudocs Munich", "Primary care for refugees", "+49 89 233-96833", "https://refudocs.org/"],
-  ["Elisenhof Urgent Care", "After-hours and weekends", "+49 89 116 117", "https://www.bereitschaftspraxen.bayern/muenchen-elisenhof/"],
-  ["LMU Hauner Children's", "Pediatric specialists", "+49 89 44005-2811", "https://www.lmu-klinikum.de/kinderklinik"],
+  ["Elisenhof Urgent Care", "After-hours and weekends", "+49 89 116 117", "Call 116117"],
+  ["LMU Hauner Children's", "Pediatric specialists", "+49 89 44005-2811", "https://www.lmu-klinikum.de/medizin-pflege/6bcb1e4e58ff275a"],
   ["Klinik Schwabing", "General and children's ER", "+49 89 3068-0", "https://www.muenchen-klinik.de/krankenhaus/schwabing/"],
   ["Red Cross Clinic", "General health and surgery", "+49 89 1303-0", "https://rotkreuzklinikum-muenchen.de/"],
 ];
 
 const mentalHealthRows = [
   ["Refugio Muenchen", "Counseling for refugees and survivors of conflict", "+49 89 9829000", "https://www.refugio-muenchen.de/en/"],
-  ["ArrivalAid Munich", "Psychosocial First Aid and relocation stress support", "+49 89 55871688", "https://arrivalaid.org/crisis-counseling"],
-  ["Ipso Care", "Arabic/English video-based counseling", "Online", "https://ipsocontext.org/online-counseling/"],
-  ["Crisis Center Atriumhaus", "Immediate psychological crisis support", "+49 89 7678-0", "https://www.muenchen-klinik.de/krankenhaus/zentrum-fuer-psychiatrie-und-psychotherapie/"],
+  ["ArrivalAid Munich", "Psychosocial First Aid and relocation stress support", "+49 89 55871688", "https://arrivalaid.org/trauma-hilfe-home-engl/"],
+  ["Ipso Care", "Arabic/English video-based counseling", "Online", "https://www.empathy-international.com/"],
+  ["Crisis Center Atriumhaus", "Immediate psychological crisis support", "+49 89 7678-0", "https://stadt.muenchen.de/service/info/atriumhaus-psychiatrisches-krisenzentrum/1067438/"],
 ];
 
 const sections = [
@@ -33,7 +33,7 @@ const sections = [
       "Always carry the card and give it to the receptionist, or Empfang, when entering a clinic.",
       "Essential medical care is usually free at the point of service, so families do not normally pay the doctor directly.",
     ],
-    links: [{ label: "Munich health benefits info", url: "https://integreat.app/muenchen/en/livelihood/health-care" }],
+    links: [{ label: "Munich health benefits info", url: "https://integreat.app/muenchen/en/health-2/the-german-healthcare-system-health-insurance" }],
     variant: "bridge",
   },
   {
@@ -98,7 +98,7 @@ const sections = [
     links: [
       { label: "Arab Med Munich", url: "https://arabmed.de/" },
       { label: "Refudocs Munich", url: "https://refudocs.org/" },
-      { label: "KVB doctor search", url: "https://www.kvb.de/service/patienten/arztsuche/" },
+      { label: "116117 doctor search", url: "https://arztsuche.116117.de/" },
     ],
     variant: "germany",
   },

@@ -12,7 +12,6 @@ import HealthSafety from "./pages/HealthSafety";
 import CommunityEntertainment from "./pages/CommunityEntertainment";
 import ChallengesSolutions from "./pages/ChallengesSolutions";
 import FamilyPlan from "./pages/FamilyPlan";
-import FamilyJourney from "./pages/FamilyJourney";
 import Sources from "./pages/Sources";
 
 export default function App() {
@@ -56,7 +55,6 @@ export default function App() {
             <Route path="/community-entertainment" element={<CommunityEntertainment />} />
             <Route path="/challenges-solutions" element={<ChallengesSolutions />} />
             <Route path="/family-plan" element={<FamilyPlan />} />
-            <Route path="/family-journey" element={<FamilyJourney />} />
             <Route path="/sources" element={<Sources />} />
           </Routes>
         </main>

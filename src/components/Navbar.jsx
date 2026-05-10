@@ -16,7 +16,6 @@ const navIcons = {
   "/community-entertainment": "MessagesSquare",
   "/challenges-solutions": "ShieldAlert",
   "/family-plan": "ClipboardCheck",
-  "/family-journey": "Route",
   "/sources": "Library",
 };
 
